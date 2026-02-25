@@ -1,0 +1,336 @@
+/* ============================================
+   AntiGravity Component Styles
+   ============================================ */
+
+/* === AG Hologram Card === */
+.ag-hologram-card {
+    position: relative;
+    background: linear-gradient(135deg, rgba(15, 15, 26, 0.9), rgba(20, 20, 40, 0.7));
+    border: 1px solid rgba(0, 240, 255, 0.12);
+    border-radius: var(--radius-md);
+    padding: 28px;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    backdrop-filter: blur(8px);
+}
+
+.ag-hologram-card:hover {
+    border-color: var(--card-glow, var(--neon-cyan));
+    box-shadow: 0 0 30px color-mix(in srgb, var(--card-glow, var(--neon-cyan)) 20%, transparent),
+        inset 0 0 30px color-mix(in srgb, var(--card-glow, var(--neon-cyan)) 5%, transparent);
+}
+
+.ag-hologram-scanline {
+    position: absolute;
+    top: -10%;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--card-glow, var(--neon-cyan)), transparent);
+    opacity: 0;
+    z-index: 2;
+    pointer-events: none;
+    transition: opacity 0.3s;
+}
+
+.ag-hologram-card:hover .ag-hologram-scanline {
+    opacity: 0.6;
+    animation: scanLine 2s linear infinite;
+}
+
+.ag-hologram-content {
+    position: relative;
+    z-index: 1;
+}
+
+/* Corner accents */
+.ag-corner {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border-color: var(--card-glow, var(--neon-cyan));
+    border-style: solid;
+    border-width: 0;
+    opacity: 0.5;
+    transition: opacity 0.3s;
+    z-index: 3;
+}
+
+.ag-hologram-card:hover .ag-corner {
+    opacity: 1;
+}
+
+.ag-corner-tl {
+    top: 6px;
+    left: 6px;
+    border-top-width: 2px;
+    border-left-width: 2px;
+}
+
+.ag-corner-tr {
+    top: 6px;
+    right: 6px;
+    border-top-width: 2px;
+    border-right-width: 2px;
+}
+
+.ag-corner-bl {
+    bottom: 6px;
+    left: 6px;
+    border-bottom-width: 2px;
+    border-left-width: 2px;
+}
+
+.ag-corner-br {
+    bottom: 6px;
+    right: 6px;
+    border-bottom-width: 2px;
+    border-right-width: 2px;
+}
+
+/* Rank badge */
+.ag-rank-badge {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    font-family: var(--font-heading);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--badge-color, var(--neon-cyan));
+    border: 1px solid var(--badge-color, var(--neon-cyan));
+    padding: 4px 12px;
+    border-radius: 4px;
+    background: color-mix(in srgb, var(--badge-color, var(--neon-cyan)) 10%, transparent);
+    z-index: 4;
+}
+
+/* Anime label */
+.ag-anime-label {
+    margin-top: 20px;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--label-color, var(--neon-pink));
+    letter-spacing: 0.1em;
+    padding-top: 12px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* === AG Neon Button === */
+.ag-neon-button {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 32px;
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--btn-text);
+    background: var(--btn-bg);
+    border: 2px solid var(--btn-border);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.ag-neon-button:hover {
+    background: var(--btn-hover-bg);
+    color: var(--btn-hover-text);
+    box-shadow: 0 0 25px var(--btn-shadow), 0 0 50px color-mix(in srgb, var(--btn-shadow) 50%, transparent);
+}
+
+.ag-btn-text {
+    position: relative;
+    z-index: 1;
+}
+
+.ag-btn-glow {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent, var(--btn-shadow), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.ag-neon-button:hover .ag-btn-glow {
+    opacity: 0.3;
+    animation: shimmer 2s linear infinite;
+}
+
+/* === AG Timeline === */
+.ag-timeline {
+    position: relative;
+    padding: 20px 0;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.ag-timeline-line {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(180deg, transparent, var(--neon-cyan), var(--neon-pink), transparent);
+    box-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+}
+
+.ag-timeline-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.ag-timeline-item.left {
+    justify-content: flex-start;
+    padding-right: calc(50% + 30px);
+}
+
+.ag-timeline-item.right {
+    justify-content: flex-end;
+    padding-left: calc(50% + 30px);
+}
+
+.ag-timeline-node {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--neon-cyan);
+    border: 3px solid var(--bg-dark);
+    box-shadow: 0 0 15px rgba(0, 240, 255, 0.5);
+    z-index: 2;
+}
+
+.ag-timeline-card {
+    background: var(--bg-card);
+    border: 1px solid rgba(0, 240, 255, 0.1);
+    border-radius: var(--radius-md);
+    padding: 24px;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.ag-timeline-year {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--neon-pink);
+    letter-spacing: 0.1em;
+}
+
+.ag-timeline-title {
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    margin: 8px 0 4px;
+}
+
+.ag-timeline-subtitle {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+.ag-timeline-detail {
+    display: inline-block;
+    margin-top: 8px;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--neon-cyan);
+    background: rgba(0, 240, 255, 0.08);
+    padding: 4px 12px;
+    border-radius: 4px;
+}
+
+/* === AG Skill Tree === */
+.ag-skill-tree {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.ag-skill-category {
+    text-align: center;
+}
+
+.ag-skill-hub {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 20px;
+    background: color-mix(in srgb, var(--hub-color) 8%, var(--bg-card));
+    border: 1px solid color-mix(in srgb, var(--hub-color) 25%, transparent);
+    border-radius: var(--radius-md);
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+.ag-skill-hub-icon {
+    font-size: 1.8rem;
+}
+
+.ag-skill-hub-title {
+    font-size: 0.9rem;
+    color: var(--hub-color);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+}
+
+.ag-skill-nodes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.ag-skill-node {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--text-primary);
+    padding: 6px 14px;
+    border: 1px solid color-mix(in srgb, var(--node-color) 20%, transparent);
+    border-radius: 20px;
+    background: color-mix(in srgb, var(--node-color) 5%, var(--bg-card));
+    cursor: default;
+    transition: all 0.3s ease;
+    letter-spacing: 0.05em;
+}
+
+/* === Responsive === */
+@media (max-width: 768px) {
+    .ag-timeline-line {
+        left: 20px;
+    }
+
+    .ag-timeline-item.left,
+    .ag-timeline-item.right {
+        padding-left: 50px;
+        padding-right: 0;
+        justify-content: flex-start;
+    }
+
+    .ag-timeline-node {
+        left: 20px;
+    }
+
+    .ag-skill-tree {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .ag-hologram-card {
+        padding: 20px;
+    }
+}
