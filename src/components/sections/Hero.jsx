@@ -82,7 +82,7 @@ const Hero = () => {
                             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
                         >
                             <img
-                                src="/pm.jpeg"
+                                src={`${import.meta.env.BASE_URL}pm.jpeg`}
                                 alt="Chhavi — Code Sorceress"
                                 className="hero-character-img"
                             />

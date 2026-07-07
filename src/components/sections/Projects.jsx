@@ -63,7 +63,7 @@ const Projects = () => {
                                 className="project-card"
                             >
                                 <div className="project-img-wrapper">
-                                    <img src={project.image} alt={project.title} className="project-img" />
+                                    <img src={`${import.meta.env.BASE_URL}${project.image.replace(/^\//, '')}`} alt={project.title} className="project-img" />
                                     <div className="project-hover-overlay">
                                         <div className="hover-actions">
                                             {project.githubUrl && (

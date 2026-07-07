@@ -73,7 +73,7 @@ const Contact = () => {
                         {activeTab === 'card' ? (
                             <div className="contact-info-card">
                                 <div className="contact-info-avatar">
-                                    <img src="/pm.jpeg" alt="Chhavi" className="contact-avatar-img" />
+                                    <img src={`${import.meta.env.BASE_URL}pm.jpeg`} alt="Chhavi" className="contact-avatar-img" />
                                     <div className="contact-avatar-ring" />
                                 </div>
 

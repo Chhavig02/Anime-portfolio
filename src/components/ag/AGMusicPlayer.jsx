@@ -15,7 +15,7 @@ const AGMusicPlayer = () => {
 
     // Initialize Audio Element loading /music.mp3 from the public folder
     useEffect(() => {
-        const audio = new Audio('/music.mp3');
+        const audio = new Audio(`${import.meta.env.BASE_URL}music.mp3`);
         audio.loop = true;
         audio.volume = volume;
         audioRef.current = audio;

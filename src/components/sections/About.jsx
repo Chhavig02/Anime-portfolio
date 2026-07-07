@@ -34,7 +34,7 @@ const About = () => {
                         <div className="avatar-ring avatar-ring-2" />
 
                         <img
-                            src="/PM.webp"
+                            src={`${import.meta.env.BASE_URL}PM.webp`}
                             alt="Chhavi — The Code Sorceress"
                             className="about-avatar-img"
                         />
