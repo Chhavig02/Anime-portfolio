@@ -3,11 +3,13 @@ import { motion } from 'framer-motion';
 import AGFadeIn from '../ag/AGFadeIn';
 import AGHologramCard from '../ag/AGHologramCard';
 import AGNeonButton from '../ag/AGNeonButton';
+import AGTerminal from '../ag/AGTerminal';
 import './sections.css';
 
 const Contact = () => {
     const [focused, setFocused] = useState('');
     const [result, setResult] = useState('');
+    const [activeTab, setActiveTab] = useState('card');
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -43,36 +45,63 @@ const Contact = () => {
                 </AGFadeIn>
 
                 <div className="contact-grid">
-                    {/* Left side — contact info card */}
+                    {/* Left side — Toggle between contact info card and terminal */}
                     <AGFadeIn direction="left" className="contact-art-area">
-                        <div className="contact-info-card">
-                            <div className="contact-info-avatar">
-                                <img src="/pm.jpeg" alt="Chhavi" className="contact-avatar-img" />
-                                <div className="contact-avatar-ring" />
-                            </div>
-
-                            <h3 className="contact-info-name">Chhavi</h3>
-                            <p className="contact-info-role">Full-Stack Engineer × AI Sorceress</p>
-
-                            <div className="contact-info-details">
-                                <a href="mailto:chhavi02g@gmail.com" className="contact-detail-item">
-                                    <span className="contact-detail-icon">📧</span>
-                                    <span>chhavi02g@gmail.com</span>
-                                </a>
-                                <a href="https://linkedin.com/in/chhavi" target="_blank" rel="noopener noreferrer" className="contact-detail-item">
-                                    <span className="contact-detail-icon">💼</span>
-                                    <span>LinkedIn</span>
-                                </a>
-                                <a href="https://github.com/Chhavig02" target="_blank" rel="noopener noreferrer" className="contact-detail-item">
-                                    <span className="contact-detail-icon">⚡</span>
-                                    <span>GitHub</span>
-                                </a>
-                            </div>
-
-                            <p className="contact-quote">
-                                "Let's build something legendary together."
-                            </p>
+                        <div className="contact-toggle-tabs">
+                            <button
+                                className={`contact-tab ${activeTab === 'card' ? 'active' : ''}`}
+                                onClick={() => setActiveTab('card')}
+                                style={{
+                                    borderColor: activeTab === 'card' ? 'var(--neon-pink)' : 'transparent',
+                                    color: activeTab === 'card' ? 'var(--neon-pink)' : 'var(--text-secondary)'
+                                }}
+                            >
+                                👤 Profile Card
+                            </button>
+                            <button
+                                className={`contact-tab ${activeTab === 'terminal' ? 'active' : ''}`}
+                                onClick={() => setActiveTab('terminal')}
+                                style={{
+                                    borderColor: activeTab === 'terminal' ? 'var(--neon-cyan)' : 'transparent',
+                                    color: activeTab === 'terminal' ? 'var(--neon-cyan)' : 'var(--text-secondary)'
+                                }}
+                            >
+                                💻 Terminal CLI
+                            </button>
                         </div>
+
+                        {activeTab === 'card' ? (
+                            <div className="contact-info-card">
+                                <div className="contact-info-avatar">
+                                    <img src="/pm.jpeg" alt="Chhavi" className="contact-avatar-img" />
+                                    <div className="contact-avatar-ring" />
+                                </div>
+
+                                <h3 className="contact-info-name">Chhavi</h3>
+                                <p className="contact-info-role">Full-Stack Engineer × AI Sorceress</p>
+
+                                <div className="contact-info-details">
+                                    <a href="mailto:chhavi02g@gmail.com" className="contact-detail-item">
+                                        <span className="contact-detail-icon">📧</span>
+                                        <span>chhavi02g@gmail.com</span>
+                                    </a>
+                                    <a href="https://linkedin.com/in/chhavi" target="_blank" rel="noopener noreferrer" className="contact-detail-item">
+                                        <span className="contact-detail-icon">💼</span>
+                                        <span>LinkedIn</span>
+                                    </a>
+                                    <a href="https://github.com/Chhavig02" target="_blank" rel="noopener noreferrer" className="contact-detail-item">
+                                        <span className="contact-detail-icon">⚡</span>
+                                        <span>GitHub</span>
+                                    </a>
+                                </div>
+
+                                <p className="contact-quote">
+                                    "Let's build something legendary together."
+                                </p>
+                            </div>
+                        ) : (
+                            <AGTerminal />
+                        )}
                     </AGFadeIn>
 
                     {/* Right side — form */}

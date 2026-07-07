@@ -1,56 +1,45 @@
 import AGFadeIn from '../ag/AGFadeIn';
 import AGHologramCard from '../ag/AGHologramCard';
-import { FaBolt, FaClock, FaChartBar, FaEye, FaShieldAlt, FaRocket, FaExternalLinkAlt, FaGithub } from 'react-icons/fa';
+import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 import './sections.css';
 
 const Projects = () => {
     const projects = [
         {
-            title: 'URL Shortener Microservice',
-            rank: 'SSR RANK',
-            glowColor: 'cyan',
-            animeLabel: 'Performance Demon',
-            features: [
-                { icon: <FaBolt />, text: '12k req/sec throughput' },
-                { icon: <FaClock />, text: '<100ms latency' },
-                { icon: <FaShieldAlt />, text: 'Redis caching layer' },
-                { icon: <FaChartBar />, text: 'Analytics dashboard' },
-                { icon: <FaEye />, text: 'Prometheus + Grafana' },
-            ],
-            description: 'High-performance URL shortener built for scale with Redis caching, server-side rendering, and real-time analytics monitoring.',
-            tech: ['Node.js', 'Redis', 'PostgreSQL', 'Docker'],
-            liveUrl: 'https://url-shortener-microservice-main.onrender.com/',
-            githubUrl: 'https://github.com/Chhavig02/URL-Shortener-Microservice-main'
-        },
-        {
-            title: 'Job Offer Letter Analyzer',
+            title: 'ScholarlyEdge',
             rank: 'LEGENDARY',
             glowColor: 'pink',
-            animeLabel: 'Insight Conjurer',
-            features: [
-                { icon: <FaEye />, text: '97% OCR accuracy' },
-                { icon: <FaShieldAlt />, text: '25+ risk detections' },
-                { icon: <FaChartBar />, text: '40+ page support' },
-                { icon: <FaClock />, text: '<4 sec processing' },
-            ],
-            description: 'AI-powered document analyzer that extracts, parses, and evaluates job offers for hidden risks and unfavorable clauses.',
-            tech: ['Python', 'NLP', 'OCR', 'ONNX'],
-            githubUrl: 'https://github.com/Chhavig02'
+            animeLabel: 'Academy Conjurer',
+            image: '/projects/scholarlyedge.png',
+            liveUrl: 'https://scholarlyedge-alpha.vercel.app/',
+            githubUrl: 'https://github.com/Chhavig02/scholarlyedge'
         },
         {
-            title: 'Smart Student Attendance',
+            title: 'VOCA',
             rank: 'ELITE',
             glowColor: 'purple',
-            animeLabel: 'Vision Guardian',
-            features: [
-                { icon: <FaEye />, text: '96.8% face accuracy' },
-                { icon: <FaRocket />, text: '40 faces/sec' },
-                { icon: <FaChartBar />, text: 'Admin dashboard' },
-                { icon: <FaShieldAlt />, text: 'Role-based access' },
-            ],
-            description: 'Real-time face recognition attendance system with multi-face detection, comprehensive admin dashboard, and role-based access control.',
-            tech: ['Python', 'OpenCV', 'Flask', 'SSIM'],
-            githubUrl: 'https://github.com/Chhavig02'
+            animeLabel: 'Voice Harmonizer',
+            image: '/projects/voca.png',
+            liveUrl: 'https://voca-rouge.vercel.app/',
+            githubUrl: 'https://github.com/Chhavig02/Voca'
+        },
+        {
+            title: 'GENAI Temperature Tester',
+            rank: 'SSR RANK',
+            glowColor: 'cyan',
+            animeLabel: 'Prompt Alchemist',
+            image: '/projects/genai.png',
+            liveUrl: 'https://8byhepiiedg9ucwvpwevbj.streamlit.app/',
+            githubUrl: 'https://github.com/Chhavig02/GENAI'
+        },
+        {
+            title: 'URL Shortener Microservice',
+            rank: 'SSR RANK',
+            glowColor: 'blue',
+            animeLabel: 'Latency Demon',
+            image: '/projects/urlshortener.png',
+            liveUrl: 'https://url-shortener-microservice-main.onrender.com/',
+            githubUrl: 'https://github.com/Chhavig02/URL-Shortener-Microservice-main'
         }
     ];
 
@@ -73,35 +62,39 @@ const Projects = () => {
                                 animeLabel={project.animeLabel}
                                 className="project-card"
                             >
-                                <h3 className="project-title">{project.title}</h3>
-                                <p className="project-desc">{project.description}</p>
-
-                                <div className="project-features">
-                                    {project.features.map((feat, i) => (
-                                        <div key={i} className="project-feature">
-                                            <span className="feature-icon">{feat.icon}</span>
-                                            <span>{feat.text}</span>
+                                <div className="project-img-wrapper">
+                                    <img src={project.image} alt={project.title} className="project-img" />
+                                    <div className="project-hover-overlay">
+                                        <div className="hover-actions">
+                                            {project.githubUrl && (
+                                                <a 
+                                                    href={project.githubUrl} 
+                                                    target="_blank" 
+                                                    rel="noopener noreferrer" 
+                                                    className="hover-action-btn github-btn" 
+                                                    title="View Source Code"
+                                                    style={{ '--btn-glow': `var(--neon-${project.glowColor})` }}
+                                                >
+                                                    <FaGithub />
+                                                </a>
+                                            )}
+                                            {project.liveUrl && (
+                                                <a 
+                                                    href={project.liveUrl} 
+                                                    target="_blank" 
+                                                    rel="noopener noreferrer" 
+                                                    className="hover-action-btn live-btn" 
+                                                    title="View Live Demo"
+                                                    style={{ '--btn-glow': `var(--neon-${project.glowColor})` }}
+                                                >
+                                                    <FaExternalLinkAlt />
+                                                </a>
+                                            )}
                                         </div>
-                                    ))}
+                                    </div>
                                 </div>
-
-                                <div className="project-tech">
-                                    {project.tech.map((t, i) => (
-                                        <span key={i} className="tech-tag">{t}</span>
-                                    ))}
-                                </div>
-
-                                <div className="project-links">
-                                    {project.liveUrl && (
-                                        <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="project-link project-link-live">
-                                            <FaExternalLinkAlt /> Live Demo
-                                        </a>
-                                    )}
-                                    {project.githubUrl && (
-                                        <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="project-link project-link-github">
-                                            <FaGithub /> Source
-                                        </a>
-                                    )}
+                                <div className="project-title-bar">
+                                    <h4>{project.title}</h4>
                                 </div>
                             </AGHologramCard>
                         </AGFadeIn>

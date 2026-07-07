@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import AGThemeSwitcher from '../ag/AGThemeSwitcher';
+import AGMusicPlayer from '../ag/AGMusicPlayer';
 import './sections.css';
 
 const navItems = [
@@ -46,7 +48,18 @@ const Navbar = () => {
                         </a>
                     </li>
                 ))}
+                {/* Mobile navigation controls inside the drawer */}
+                <li className="nav-mobile-controls">
+                    <AGMusicPlayer />
+                    <AGThemeSwitcher />
+                </li>
             </ul>
+
+            {/* Desktop navigation controls in the header */}
+            <div className="nav-controls header-controls">
+                <AGMusicPlayer />
+                <AGThemeSwitcher />
+            </div>
 
             <button
                 className="nav-hamburger"
