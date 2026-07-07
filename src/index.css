@@ -4,6 +4,8 @@
    ============================================ */
 
 /* === CSS Custom Properties (Design Tokens) === */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+
 :root {
   /* Core Colors */
   --neon-pink: #ff2d75;
@@ -11,42 +13,42 @@
   --neon-purple: #b84dff;
   --neon-blue: #4d7cff;
   --neon-green: #39ff14;
-  
+
   /* Background layers */
   --bg-deepest: #050508;
   --bg-dark: #0a0a14;
   --bg-card: #0f0f1a;
   --bg-card-hover: #14142a;
   --bg-elevated: #1a1a2e;
-  
+
   /* Text */
   --text-primary: #e8e8f0;
   --text-secondary: #8888aa;
   --text-muted: #555570;
   --text-glow: #ffffff;
-  
+
   /* Neon Glow Shadows */
   --glow-pink: 0 0 10px rgba(255, 45, 117, 0.5), 0 0 40px rgba(255, 45, 117, 0.2);
   --glow-cyan: 0 0 10px rgba(0, 240, 255, 0.5), 0 0 40px rgba(0, 240, 255, 0.2);
   --glow-purple: 0 0 10px rgba(184, 77, 255, 0.5), 0 0 40px rgba(184, 77, 255, 0.2);
-  
+
   /* Typography */
   --font-heading: 'Orbitron', sans-serif;
-  --font-body: 'Rajdhani', sans-serif;
-  --font-mono: 'Share Tech Mono', monospace;
-  
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'Inter', sans-serif;
+
   /* Spacing */
   --section-padding: 100px 0;
   --container-width: 1200px;
   --container-padding: 0 40px;
-  
+
   /* Borders */
   --border-neon: 1px solid rgba(0, 240, 255, 0.15);
   --border-pink: 1px solid rgba(255, 45, 117, 0.15);
   --radius-sm: 8px;
   --radius-md: 16px;
   --radius-lg: 24px;
-  
+
   /* Transitions */
   --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-smooth: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -162,25 +164,40 @@ body {
 ::-webkit-scrollbar {
   width: 6px;
 }
+
 ::-webkit-scrollbar-track {
   background: var(--bg-deepest);
 }
+
 ::-webkit-scrollbar-thumb {
   background: linear-gradient(180deg, var(--neon-pink), var(--neon-cyan));
   border-radius: 3px;
 }
 
 /* === Typography === */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-heading);
   font-weight: 700;
   letter-spacing: 0.05em;
   line-height: 1.2;
 }
 
-h1 { font-size: clamp(2rem, 5vw, 3.5rem); }
-h2 { font-size: clamp(1.5rem, 3.5vw, 2.5rem); }
-h3 { font-size: clamp(1.1rem, 2vw, 1.5rem); }
+h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+}
+
+h2 {
+  font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+}
+
+h3 {
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
+}
 
 p {
   font-family: var(--font-body);
@@ -194,6 +211,7 @@ a {
   text-decoration: none;
   transition: var(--transition-fast);
 }
+
 a:hover {
   color: var(--neon-pink);
   text-shadow: var(--glow-pink);
@@ -247,69 +265,122 @@ a:hover {
 .neon-text-cyan {
   color: var(--neon-cyan);
   text-shadow: 0 0 7px rgba(0, 240, 255, 0.6),
-               0 0 30px rgba(0, 240, 255, 0.3);
+    0 0 30px rgba(0, 240, 255, 0.3);
 }
 
 .neon-text-pink {
   color: var(--neon-pink);
   text-shadow: 0 0 7px rgba(255, 45, 117, 0.6),
-               0 0 30px rgba(255, 45, 117, 0.3);
+    0 0 30px rgba(255, 45, 117, 0.3);
 }
 
 .neon-text-purple {
   color: var(--neon-purple);
   text-shadow: 0 0 7px rgba(184, 77, 255, 0.6),
-               0 0 30px rgba(184, 77, 255, 0.3);
+    0 0 30px rgba(184, 77, 255, 0.3);
 }
 
 /* === Keyframe Animations === */
 @keyframes neonPulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.7; }
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.7;
+  }
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-20px); }
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
 }
 
 @keyframes glitch {
-  0%, 100% { transform: translate(0); }
-  20% { transform: translate(-2px, 2px); }
-  40% { transform: translate(-2px, -2px); }
-  60% { transform: translate(2px, 2px); }
-  80% { transform: translate(2px, -2px); }
+
+  0%,
+  100% {
+    transform: translate(0);
+  }
+
+  20% {
+    transform: translate(-2px, 2px);
+  }
+
+  40% {
+    transform: translate(-2px, -2px);
+  }
+
+  60% {
+    transform: translate(2px, 2px);
+  }
+
+  80% {
+    transform: translate(2px, -2px);
+  }
 }
 
 @keyframes scanLine {
-  0% { top: -10%; }
-  100% { top: 110%; }
+  0% {
+    top: -10%;
+  }
+
+  100% {
+    top: 110%;
+  }
 }
 
 @keyframes shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
+  0% {
+    background-position: -200% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
 }
 
 @keyframes borderGlow {
-  0%, 100% { 
+
+  0%,
+  100% {
     border-color: rgba(0, 240, 255, 0.3);
     box-shadow: 0 0 15px rgba(0, 240, 255, 0.1);
   }
-  50% { 
+
+  50% {
     border-color: rgba(255, 45, 117, 0.3);
     box-shadow: 0 0 15px rgba(255, 45, 117, 0.1);
   }
 }
 
 @keyframes circuitFlow {
-  0% { stroke-dashoffset: 1000; }
-  100% { stroke-dashoffset: 0; }
+  0% {
+    stroke-dashoffset: 1000;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+  }
 }
 
 @keyframes typewriter {
-  from { width: 0; }
-  to { width: 100%; }
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100%;
+  }
 }
 
 /* === Glass Morphism Base === */
@@ -325,11 +396,12 @@ a:hover {
 .circuit-bg {
   position: relative;
 }
+
 .circuit-bg::before {
   content: '';
   position: absolute;
   inset: 0;
-  background-image: 
+  background-image:
     linear-gradient(rgba(0, 240, 255, 0.03) 1px, transparent 1px),
     linear-gradient(90deg, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
   background-size: 50px 50px;
@@ -343,7 +415,7 @@ a:hover {
     --section-padding: 60px 0;
     --container-padding: 0 20px;
   }
-  
+
   .section-title {
     margin-bottom: 40px;
   }

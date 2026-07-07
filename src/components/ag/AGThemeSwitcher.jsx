@@ -15,6 +15,18 @@ const AGThemeSwitcher = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [activeTheme, setActiveTheme] = useState('cyberpunk');
 
+    // Close when clicking outside
+    useEffect(() => {
+        if (!isOpen) return;
+        const handleOutsideClick = (e) => {
+            if (!e.target.closest('.ag-theme-switcher-container')) {
+                setIsOpen(false);
+            }
+        };
+        document.addEventListener('click', handleOutsideClick);
+        return () => document.removeEventListener('click', handleOutsideClick);
+    }, [isOpen]);
+
     // On mount, read from localStorage or default
     useEffect(() => {
         const savedTheme = localStorage.getItem('anime-portfolio-theme') || 'cyberpunk';
@@ -42,7 +54,10 @@ const AGThemeSwitcher = () => {
             {/* Toggle Button */}
             <motion.button
                 className="ag-theme-toggle-btn"
-                onClick={() => setIsOpen(!isOpen)}
+                onClick={(e) => {
+                    e.stopPropagation();
+                    setIsOpen(!isOpen);
+                }}
                 whileHover={{ scale: 1.1, rotate: 15 }}
                 whileTap={{ scale: 0.9 }}
                 aria-label="Customize Color Scheme"
@@ -61,6 +76,11 @@ const AGThemeSwitcher = () => {
                 {isOpen && (
                     <motion.div
                         className="ag-theme-panel"
+                        onClick={(e) => e.stopPropagation()}
+                        drag
+                        dragMomentum={false}
+                        style={{ cursor: 'grab', touchAction: 'none' }}
+                        whileDrag={{ scale: 1.02, cursor: 'grabbing', zIndex: 1020 }}
                         initial={{ opacity: 0, y: 20, scale: 0.95 }}
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 20, scale: 0.95 }}

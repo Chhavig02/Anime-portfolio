@@ -154,9 +154,20 @@ Status: LEGENDARY SORCERESS ACTIVE.`
     }
 
     return (
-        <div className="ag-terminal-container" onClick={handleTerminalClick}>
+        <motion.div
+            className="ag-terminal-container"
+            onClick={handleTerminalClick}
+            drag
+            dragMomentum={false}
+            dragListener={true}
+            dragControls={undefined}
+            // Limit drag to container or header: we can specify a class or element, or let the user drag anywhere on container
+            // Let's constrain dragging so it doesn't float off the page completely, or simply enable free drag.
+            style={{ x: 0, y: 0, cursor: 'grab' }}
+            whileDrag={{ scale: 1.01, cursor: 'grabbing', zIndex: 999 }}
+        >
             {/* Header / Window Controls */}
-            <div className="ag-terminal-header">
+            <div className="ag-terminal-header" style={{ cursor: 'move' }}>
                 <div className="header-left">
                     <FaTerminal className="terminal-header-icon" />
                     <span>hologram_bash.sh</span>
@@ -164,6 +175,7 @@ Status: LEGENDARY SORCERESS ACTIVE.`
                     {/* Glowing Command Selector Dropdown */}
                     <select
                         className="terminal-command-select"
+                        onClick={(e) => e.stopPropagation()}
                         onChange={(e) => {
                             if (e.target.value) {
                                 executeCommand(e.target.value);
@@ -183,7 +195,7 @@ Status: LEGENDARY SORCERESS ACTIVE.`
                         <option value="clear">clear</option>
                     </select>
                 </div>
-                <div className="header-right">
+                <div className="header-right" onClick={(e) => e.stopPropagation()}>
                     <button className="win-btn win-btn-minimize" aria-label="Minimize" onClick={() => setIsOpen(false)}>
                         <FaMinus />
                     </button>
@@ -225,7 +237,7 @@ Status: LEGENDARY SORCERESS ACTIVE.`
                     />
                 </div>
             </div>
-        </div>
+        </motion.div>
     );
 };
 
