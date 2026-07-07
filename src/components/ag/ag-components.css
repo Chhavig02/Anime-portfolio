@@ -580,6 +580,34 @@
     color: var(--neon-cyan);
 }
 
+.terminal-command-select {
+    background: rgba(10, 10, 18, 0.9);
+    border: 1px solid rgba(0, 240, 255, 0.3);
+    border-radius: 4px;
+    color: var(--neon-cyan);
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    padding: 1px 6px;
+    margin-left: 12px;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.terminal-command-select:hover {
+    border-color: var(--neon-pink);
+    color: var(--neon-pink);
+    box-shadow: 0 0 8px rgba(255, 0, 128, 0.2);
+}
+
+.terminal-command-select option {
+    background: #050508;
+    color: #fff;
+    font-family: var(--font-mono);
+}
+
 .header-right {
     display: flex;
     gap: 6px;
