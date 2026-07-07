@@ -7,7 +7,7 @@ const Skills = () => {
         {
             title: 'Frontend',
             icon: '⚡',
-            skills: ['React.js', 'Next.js', 'Svelte', 'Tailwind', 'Framer Motion', 'HTML/CSS', 'JavaScript']
+            skills: ['React.js', 'Next.js', 'Tailwind', 'Framer Motion', 'HTML/CSS', 'JavaScript']
         },
         {
             title: 'Backend',
@@ -17,12 +17,12 @@ const Skills = () => {
         {
             title: 'AI Sorcery',
             icon: '🧠',
-            skills: ['Python', 'ML', 'Deep Learning', 'NLP', 'OCR', 'LLMs', 'ONNX Runtime']
+            skills: ['Python', 'ML', 'Deep Learning', 'NLP', 'OCR', 'LLMs']
         },
         {
             title: 'DevOps',
             icon: '🚀',
-            skills: ['Git', 'Docker', 'GitHub Actions', 'Vercel', 'Prometheus', 'Grafana']
+            skills: ['Git', 'Docker', 'GitHub Actions', 'Vercel']
         }
     ];
 

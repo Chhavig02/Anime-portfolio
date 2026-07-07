@@ -73,10 +73,10 @@ Motto: "Building blazing web apps & intelligent AI systems."`
                 newHistory.push({
                     type: 'output',
                     text: `Domain Spells Loaded:
-  [Frontend]   - React.js, Next.js, Svelte, Tailwind, Framer Motion, Javascript
+  [Frontend]   - React.js, Next.js, Tailwind, Framer Motion, Javascript
   [Backend]    - Node.js, Express, MongoDB, MySQL, Redis, JWT, REST APIs
-  [AI Sorcery] - Python, ML, Deep Learning, NLP, OCR, LLMs, ONNX Runtime
-  [DevOps]     - Git, Docker, GitHub Actions, Vercel, Prometheus, Grafana`
+  [AI Sorcery] - Python, ML, Deep Learning, NLP, OCR, LLMs
+  [DevOps]     - Git, Docker, GitHub Actions, Vercel`
                 });
                 break;
             case 'projects':
